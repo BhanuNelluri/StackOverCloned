@@ -1,0 +1,97 @@
+.auth{
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.name{
+    display: flex;
+    align-items: center;
+}
+.firstName{
+   padding-right: 10px ;
+}
+.lastName{
+padding-left: 10px;
+}
+.adornment{
+    display: flex;
+}
+.adornment input {
+    border-bottom-right-radius: 0%;
+    border-top-right-radius:0% ;
+    border-right: none;
+}
+.adornment button {
+    border-bottom-left-radius: 0%;
+    border-top-left-radius:0% ;
+    border-left: none;
+    border-color: lightgray;
+    background-color: #282E34;
+    color:grey;
+}
+.adornment button:hover{
+    box-shadow: none;
+    background-color:#282E34;
+    color: grey;
+    border-color: lightgray;
+}
+.adornment button.active{
+    box-shadow: none;
+    background-color: #282E34;
+    border-color: lightgray;
+    color: grey;
+    border: none;
+}
+.btn-fullWidth{
+    width: 100%;
+}
+.form-control{
+    color: #fff;
+    background-color: #282E34;
+}
+.form-control:hover{
+    color: #fff;
+    background-color: #282E34;
+    box-shadow: none;
+}
+.info{
+    color:rgb(248, 240, 240)
+}
+
+span{
+    cursor: pointer;
+    color: #198754;
+}
+
+
+.authCard{
+    background-color: #282E34;
+    color: #fff;
+    margin: 0 auto;
+    margin:  20px 0;
+}
+.form-label{
+    font-size: 1rem;
+}
+@media screen and (max-width:600px){
+    .authCard{
+        width:70%;
+        margin-top: 110px;
+    }
+    .form-label{
+        font-size: 0.8rem;
+    }
+    .auth{
+        width: 100%;
+    }
+}
+@media screen and (max-width:400px){
+    .authCard{
+        margin: 20px 20px;
+    }
+}

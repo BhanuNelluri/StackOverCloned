@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Navbar.css';
-import { Link as LinkS } from 'react-scroll';
 import { Link as LinkR, useHistory, useLocation } from 'react-router-dom';
 import { TimelineLite, Power3 } from 'gsap';
 import { useDispatch } from 'react-redux';

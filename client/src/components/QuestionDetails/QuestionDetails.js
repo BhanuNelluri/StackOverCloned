@@ -66,9 +66,6 @@ export default function QuestionDetails({ setCurrentQuestionId }) {
                     <div className="qDetailsHeader">
                         {question.title}
                     </div>
-                    <div className="navBtn">
-                        <a className="btn btn-success" href="/newQuestion">Ask Question</a>
-                    </div>
                 </div>
                 <div className="qDetailsBar">
                     Asked {moment(question.created).fromNow()}

@@ -15,8 +15,11 @@
     margin-left: 20px;
     font-size: 1.5rem;
 }
-.navBtn{
-    margin-right: 20px;
+@media screen and (max-width:500px){
+    .qDetailsHeader{
+        margin-left: 10px;
+        font-size: 1.3rem;
+    }
 }
 .qDetailsBar{
     margin-top: 20px;
@@ -51,8 +54,7 @@ a{
 }
 .qDetailsTags{
     margin-top: 20px;
-    display:flex;
-    flex-direction:row;
+    line-height:40px;
 }
 .qtag{
     margin-right:10px;

@@ -1,5 +1,5 @@
 import * as api from '../api';
-import { FETCH_TAGS, FETCH_TAG,UPDATE_TAG } from '../constants/ActionTypse';
+import { FETCH_TAGS, FETCH_TAG, UPDATE_TAG, START_LOADING, END_LOADING } from '../constants/ActionTypse';
 
 export const newTag = (tagData) => async (dispatch) => {
     try {
@@ -11,9 +11,11 @@ export const newTag = (tagData) => async (dispatch) => {
 
 export const gettags = () => async (dispatch) => {
     try {
+        dispatch({ type: START_LOADING });
         const { data } = await api.fetchtags();
         const action = { type: FETCH_TAGS, payload: data };
         dispatch(action);
+        dispatch({ type: END_LOADING });
     } catch (error) {
         console.log(error.message);
     }

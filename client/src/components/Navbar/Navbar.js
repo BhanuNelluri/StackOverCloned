@@ -7,6 +7,7 @@ import { LOGOUT } from '../../constants/ActionTypse';
 import decode from 'jwt-decode';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { success } from '../../actions/alerts';
+import stackoverflowLogo from '../../images/stackoverflowLogo.png';
 
 
 export default function Navbar({ isOpen, setIsOpen, isSignup, setIsSignup, search, setSearch, searchQuestions }) {
@@ -76,7 +77,9 @@ export default function Navbar({ isOpen, setIsOpen, isSignup, setIsSignup, searc
                     onClick={() => setIsOpen(false)}
                 >
                     IITG
+                    <img className="logoImage" height="40px" src={stackoverflowLogo} alt="StackOverCloned" />
                 </LinkR>
+
                 <div class="Bar input-group mb-3">
                     <span class="searchIcon input-group-text" id="basic-addon1"><AiOutlineSearch /></span>
                     <input type="text" onKeyDown={handleKeyPress} value={search} onChange={(e) => setSearch(e.target.value)} class="searchBar form-control" placeholder="Search..." aria-label="Search" aria-describedby="basic-addon1" />

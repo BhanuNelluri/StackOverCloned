@@ -1,5 +1,5 @@
 import * as api from '../api';
-import { CREATE, UPDATE, FETCH_ALL, DELETE, FETCH_BY_SEARCH, FETCH_QUESTION } from '../constants/ActionTypse';
+import { CREATE, UPDATE, FETCH_ALL, DELETE, FETCH_BY_SEARCH, FETCH_QUESTION, START_LOADING, END_LOADING } from '../constants/ActionTypse';
 import { success, alerterror } from './alerts';
 
 
@@ -15,9 +15,11 @@ export const askQuestion = (questionData) => async (dispatch) => {
 
 export const getQuestions = (page) => async (dispatch) => {
     try {
+        dispatch({ type: START_LOADING });
         const { data: { data, currentPage, numberOfPages, total } } = await api.fetchQuestions(page);
         const action = { type: FETCH_ALL, payload: { data, currentPage, numberOfPages, total } };
         dispatch(action);
+        dispatch({ type: END_LOADING });
     } catch (error) {
         console.log(error.message);
     }
@@ -25,9 +27,11 @@ export const getQuestions = (page) => async (dispatch) => {
 
 export const getQuestionsBySearch = (searchQuery) => async (dispatch) => {
     try {
+        dispatch({ type: START_LOADING });
         const { data } = await api.fetchQuestionsBySearch(searchQuery);
         const action = { type: FETCH_BY_SEARCH, payload: data };
         dispatch(action);
+        dispatch({ type: END_LOADING });
     } catch (error) {
         console.log(error)
     }
@@ -35,9 +39,11 @@ export const getQuestionsBySearch = (searchQuery) => async (dispatch) => {
 
 export const getQuestion = (id) => async (dispatch) => {
     try {
+        dispatch({ type: START_LOADING });
         const { data } = await api.fetchQuestion(id);
         const action = { type: FETCH_QUESTION, payload: { question: data } };
         dispatch(action);
+        dispatch({ type: END_LOADING });
     } catch (error) {
         console.log(error.message);
     }

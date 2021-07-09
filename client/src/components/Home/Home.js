@@ -98,7 +98,7 @@ export default function Home({ isSignup, setIsSignup, setIsOpen, search, setSear
                             <Sidebar setIsOpen={setIsOpen} />
                         </div>
                         <div className="homeContent">
-                            <Tags setSearch={setSearch} searchQuestions={searchQuestions} />
+                            <Tags />
                         </div>
                     </div>
                 </Route>

@@ -1,7 +1,11 @@
-import { FETCH_TAGS, FETCH_TAG, UPDATE_TAG } from "../constants/ActionTypse";
+import { FETCH_TAGS, FETCH_TAG, UPDATE_TAG, START_LOADING, END_LOADING } from "../constants/ActionTypse";
 
-export default (state = { tags: [] }, action) => {
+export default (state = { isLoading: true, tags: [] }, action) => {
     switch (action.type) {
+        case START_LOADING:
+            return { ...state, isLoading: true };
+        case END_LOADING:
+            return { ...state, isLoading: false };
         case FETCH_TAGS:
             return {
                 ...state,

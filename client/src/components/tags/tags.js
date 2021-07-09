@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './tags.css';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import moment from 'moment';
 import Tagbtn from './tagbtn';
 import { AiOutlineSearch } from 'react-icons/ai';
 import handleSorting from '../../services/handleSorting';
+import { CircularProgress } from '@material-ui/core';
 
 
-
-const Tags = ({ setSearch, searchQuestions }) => {
-    const { tags } = useSelector((state) => state.tags);
-    const { questions } = useSelector((state) => state.questions);
+const Tags = () => {
+    const { tags, isLoading } = useSelector((state) => state.tags);
     const [fetchSearch, setFetchSearch] = useState('');
     const [sortType, setSortType] = useState('Popular');
 
@@ -19,6 +18,7 @@ const Tags = ({ setSearch, searchQuestions }) => {
         setFetchSearch(e.target.value);
         console.log(fetchSearch);
     };
+    const update = true;
 
     return (
         <div className="tagsContainer">
@@ -50,26 +50,26 @@ const Tags = ({ setSearch, searchQuestions }) => {
                     </div>
                 </div>
             </div>
-            <div className="tagsContent">
-                {tags.filter((tag) =>
-                    tag.skill.toLowerCase().includes(fetchSearch.toLowerCase())
-                )?.sort(handleSorting(sortType)).map((tag) => (
-                    <div key={tag._id} class="card tagCard">
-                        <div class="card-body">
-                            <div className="card-title">
-                                <Tagbtn name={tag.skill} />
-                            </div>
-                            <p class="tagbody card-text">{tag.body}</p>
-                            <div className="tagFooter">
-                                <div>{tag.questions_count} questions</div>
-                                <div>Added {moment(tag.created).fromNow()}</div>
+            {isLoading ? <div className="loading"><CircularProgress /></div> : (
+                <div className="tagsContent">
+                    {tags.filter((tag) =>
+                        tag.skill.toLowerCase().includes(fetchSearch.toLowerCase())
+                    )?.sort(handleSorting(sortType)).map((tag) => (
+                        <div key={tag._id} class="card tagCard">
+                            <div class="card-body">
+                                <div className="card-title">
+                                    <Tagbtn name={tag.skill} update={update} />
+                                </div>
+                                <p class="tagbody card-text">{tag.body}</p>
+                                <div className="tagFooter">
+                                    <div>{tag.questions_count} questions</div>
+                                    <div>Added {moment(tag.created).fromNow()}</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                ))}
-
-            </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 }

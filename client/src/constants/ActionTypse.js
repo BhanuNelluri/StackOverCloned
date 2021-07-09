@@ -12,3 +12,5 @@ export const UPDATE_TAG = 'UPDATE_TAG';
 export const SUCCESS = 'SUCCESS';
 export const ERROR = 'ERROR';
 export const CLEAR = 'CLEAR';
+export const START_LOADING = 'START_LOADING';
+export const END_LOADING = 'END_LOADING';

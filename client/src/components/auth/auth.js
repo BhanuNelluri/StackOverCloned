@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './auth.css';
 import { MdVisibility } from 'react-icons/md';
 import { MdVisibilityOff } from 'react-icons/md';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { signup, signin } from '../../actions/auth';
+import { CircularProgress } from '@material-ui/core';
 
 const initialState = { firstName: "", lastName: "", email: "", password: "", confirmPassword: "" };
 
@@ -13,6 +14,7 @@ const Auth = ({ isSignup, setIsSignup }) => {
     const history = useHistory();
     const [showPassword, setShowPassword] = useState(false);
     const [formData, setFormData] = useState(initialState);
+    const { isLoading } = useSelector((state) => state.Auth);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -78,7 +80,13 @@ const Auth = ({ isSignup, setIsSignup }) => {
                             </div>
                             }
                             <div class="mb-3">
-                                <button class="btn btn-success btn-fullWidth" type="submit">{!isSignup ? "Sign up" : "Sign in"}</button>
+                                <button class="btn btn-success btn-fullWidth" type="submit">
+                                    {isLoading ? <div><CircularProgress fontSize="small" /></div> : (
+                                        <div>
+                                            {!isSignup ? "Sign up" : "Sign in"}
+                                        </div>
+                                    )}
+                                </button>
                             </div>
                         </form>
                     </h6>

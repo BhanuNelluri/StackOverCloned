@@ -1,11 +1,11 @@
-import { CREATE, FETCH_ALL, UPDATE, DELETE, FETCH_QUESTION, FETCH_BY_SEARCH } from "../constants/ActionTypse";
+import { CREATE, FETCH_ALL, UPDATE, DELETE, FETCH_QUESTION, FETCH_BY_SEARCH, START_LOADING, END_LOADING } from "../constants/ActionTypse";
 
 export default (state = { isLoading: true, questions: [] }, action) => {
     switch (action.type) {
-        // case START_LOADING:
-        //     return { ...state, isLoading: true };
-        // case END_LOADING:
-        //     return { ...state, isLoading: false };
+        case START_LOADING:
+            return { ...state, isLoading: true };
+        case END_LOADING:
+            return { ...state, isLoading: false };
         case CREATE:
             return { ...state, questions: [...state.questions, action.payload] };
         case FETCH_ALL:

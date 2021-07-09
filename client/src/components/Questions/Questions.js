@@ -4,9 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import Question from './Question/Question';
 import { getTag } from '../../actions/tags';
 import handleSorting from '../../services/handleSorting';
+import { CircularProgress } from '@material-ui/core';
 
 export default function Questions({ searchQuery, tags }) {
-    const { questions } = useSelector((state) => state.questions);
+    const { questions, isLoading } = useSelector((state) => state.questions);
     const { total } = useSelector((state) => state.questions);
     const dispatch = useDispatch();
     const tag = useSelector((state) => state.tags.tag);
@@ -52,12 +53,17 @@ export default function Questions({ searchQuery, tags }) {
                     <label class="btn btn-outline-success fw-bold" for="btnradio3">Oldest</label>
                 </div>
             </div>
-            {questions && questions.sort(handleSorting(sortType)).map((question) => (
-                <div key={question._id} className="QuestionsContent">
-                    <Question key={question._id} question={question} />
+            {isLoading ? <div className="loading"><CircularProgress /></div> : (
+                <div>
+                    {questions && questions.sort(handleSorting(sortType)).map((question) => (
+                        <div key={question._id} className="QuestionsContent">
+                            <Question key={question._id} question={question} />
+                        </div>
+                    ))
+                    }
                 </div>
-            ))
-            }
+            )}
+
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { clear } from "../actions/alerts";
 import './Notification.css';
@@ -36,14 +36,13 @@ const Notification = props => {
         }, 400)
     };
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (width === 100) {
-            // Close notification
             handleCloseNotification()
         }
     }, [width])
 
-    React.useEffect(() => {
+    useEffect(() => {
         handleStartTimer();
     }, []);
 

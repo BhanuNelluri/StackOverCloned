@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './tagbtn.css';
 import { useHistory } from 'react-router';
 import { getQuestionsBySearch } from '../../actions/questions';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { updateTag } from '../../actions/tags';
 
-const Tagbtn = ({ name }) => {
+const Tagbtn = ({ name, update }) => {
     const history = useHistory();
     const dispatch = useDispatch();
+    useEffect(() => {
+        if (update)
+            dispatch(updateTag({ name }));
+    }, [name])
 
-    dispatch(updateTag({ name }))
     return (
         <span onClick={() => {
             dispatch(getQuestionsBySearch({ search: "none", tags: name }));

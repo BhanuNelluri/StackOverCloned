@@ -120,3 +120,14 @@
         display:none;
     }  
 }
+.logoImage{
+    height: 40px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.NavLogo,.NavLinks:hover{
+    color: #FFE123;
+}
+.NavLogo:hover{
+    color: #fff;
+}

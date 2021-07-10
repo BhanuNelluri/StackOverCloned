@@ -28,5 +28,5 @@ export const upVote = (id, answer_id) => API.patch(`/question/${id}/answer/${ans
 export const downVote = (id, answer_id) => API.patch(`/question/${id}/answer/${answer_id}/downvote`);
 export const newTag = (tagData) => API.post('/tag', tagData);
 export const fetchtags = () => API.get('/tag');
-export const fetchTag = (tag) => API.get(`/tag/one?skill=${tag}`);
+export const fetchTag = (tag) => API.get(`/tag/${tag}`);
 export const updateTag = (tag) => API.patch(`/tag`, tag);

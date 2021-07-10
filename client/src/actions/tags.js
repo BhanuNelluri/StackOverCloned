@@ -21,9 +21,9 @@ export const gettags = () => async (dispatch) => {
     }
 }
 
-export const getTag = (tags) => async (dispatch) => {
+export const getTag = (tag) => async (dispatch) => {
     try {
-        const { data } = await api.fetchTag(tags);
+        const { data } = await api.fetchTag(tag);
         const action = { type: FETCH_TAG, payload: { tag: data } };
         dispatch(action);
     } catch (error) {

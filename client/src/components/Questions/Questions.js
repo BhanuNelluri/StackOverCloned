@@ -15,6 +15,7 @@ export default function Questions({ searchQuery, tags }) {
     const [sortType, setSortType] = useState('Newest');
     const { tag: skill } = useParams();
 
+    console.log(tag);
 
     useEffect(() => {
         if (tags) {

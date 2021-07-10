@@ -23,9 +23,9 @@ export const gettags = async (req, res) => {
 }
 
 export const getTag = async (req, res) => {
-    const { skill } = req.query;
+    const { tag: skill } = req.params;
     try {
-        const tag = await Tag.find({ skill: { skill } });
+        const tag = await Tag.find({ skill: { $in: [skill] } });
         res.status(200).json(tag);
     } catch (error) {
         res.status(404).json({ message: error.message });

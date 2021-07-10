@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post('/', create);
 router.get('/', gettags);
-router.get('/one', getTag);
+router.get('/:tag', getTag);
 router.patch('/', updateTag);
 
 export default router;

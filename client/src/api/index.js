@@ -1,7 +1,7 @@
 import axios from 'axios';
 import qs from 'qs';
 
-const API = axios.create({ baseURL: "https://stack-over-cloned.netlify.app/" });
+const API = axios.create({ baseURL: "https://stack-over-cloned.herokuapp.com/" });
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem('profile')) {

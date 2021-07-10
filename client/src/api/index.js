@@ -1,6 +1,7 @@
 import axios from 'axios';
+import qs from 'qs';
 
-const API = axios.create({ baseURL: "https://stack-over-cloned.herokuapp.com/" });
+const API = axios.create({ baseURL: "https://stack-over-cloned.netlify.app/" });
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem('profile')) {
@@ -15,6 +16,7 @@ export const signUp = (formData) => API.post('/users/signup', formData);
 export const askQuestion = (questionData) => API.post('/question', questionData);
 export const fetchQuestions = (page) => API.get(`/question?page=${page}`);
 export const fetchQuestionsBySearch = (searchQuery) => API.get(`/question/search?searchQuery=${searchQuery.search || 'none'}&tags=${searchQuery.tags}`);
+export const fetchQuestionsByTag = (tag) => API.get(`/question/tag/${tag}`, qs.stringify(tag));
 export const fetchQuestion = (id) => API.get(`/question/${id}`);
 export const newComment = (commentData, id) => API.post(`/question/${id}/comment`, commentData);
 export const newAnswer = (answerData, id) => API.post(`/question/${id}/answer`, answerData);

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './tagbtn.css';
 import { useHistory } from 'react-router';
-import { getQuestionsBySearch } from '../../actions/questions';
+import { getQuestionsByTag } from '../../actions/questions';
 import { useDispatch } from 'react-redux';
 import { updateTag } from '../../actions/tags';
 
@@ -15,8 +15,8 @@ const Tagbtn = ({ name, update }) => {
 
     return (
         <span onClick={() => {
-            dispatch(getQuestionsBySearch({ search: "none", tags: name }));
-            history.push(`/questions?tags=${name || "none"}`);
+            dispatch(getQuestionsByTag(name));
+            history.push(`/questions/tags/${name}`);
         }} class="tagSkill">{name}</span>
     );
 }

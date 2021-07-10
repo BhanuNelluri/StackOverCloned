@@ -5,6 +5,7 @@ import Question from './Question/Question';
 import { getTag } from '../../actions/tags';
 import handleSorting from '../../services/handleSorting';
 import { CircularProgress } from '@material-ui/core';
+import { useParams } from 'react-router';
 
 export default function Questions({ searchQuery, tags }) {
     const { questions, isLoading } = useSelector((state) => state.questions);
@@ -12,11 +13,12 @@ export default function Questions({ searchQuery, tags }) {
     const dispatch = useDispatch();
     const tag = useSelector((state) => state.tags.tag);
     const [sortType, setSortType] = useState('Newest');
+    const { tag: skill } = useParams();
 
 
     useEffect(() => {
         if (tags) {
-            dispatch(getTag(tags));
+            dispatch(getTag(skill));
         }
     }, [tags])
 
@@ -24,7 +26,7 @@ export default function Questions({ searchQuery, tags }) {
         <div className="QuestionsContainer">
             <div className="QuestionsNav">
                 {tags && <div className="QuestionsHeader">
-                    Questions tagged [{tags}]
+                    Questions tagged [{skill}]
                 </div>
                 }
                 {searchQuery && <div className="QuestionsHeader">

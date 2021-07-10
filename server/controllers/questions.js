@@ -36,10 +36,21 @@ export const getQuestions = async (req, res) => {
 }
 
 export const getQuestionsBySearch = async (req, res) => {
-    const { searchQuery, tags } = req.query;
+    const { searchQuery } = req.query;
     try {
         const search = new RegExp(searchQuery, 'i');
-        const questions = await Question.find({ $or: [{ title: { $in: search } }, { body: { $in: search } }, { tags: { $in: tags } }] }).populate('creator');
+        const questions = await Question.find({ $or: [{ title: { $in: search } }, { body: { $in: search } }] }).populate('creator');
+        res.status(200).json(questions);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+}
+export const getQuestionsByTag = async (req, res) => {
+    const { tag } = req.params;
+    console.log(tag);
+    try {
+        // const search = new RegExp(searchQuery, 'i');
+        const questions = await Question.find({ tags: { $in: [tag] } }).populate('creator');
         res.status(200).json(questions);
     } catch (error) {
         res.status(404).json({ message: error.message });

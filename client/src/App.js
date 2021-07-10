@@ -18,7 +18,7 @@ function App() {
 
   const searchQuestions = () => {
     if (search.trim()) {
-      dispatch(getQuestionsBySearch({ search, tags: "none" }));
+      dispatch(getQuestionsBySearch({ search }));
       history.push(`/questions?searchQuery=${search || "none"}`);
     } else {
       history.push('/');

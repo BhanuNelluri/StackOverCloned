@@ -27,7 +27,6 @@ export default function Home({ isSignup, setIsSignup, setIsOpen, search, setSear
     const query = useQuery();
     const page = query.get('page') || 1;
     const searchQuery = query.get('searchQuery');
-    const tags = query.get('tags');
     const alert = useSelector(state => state.alerts);
 
     useEffect(() => {
@@ -70,11 +69,25 @@ export default function Home({ isSignup, setIsSignup, setIsOpen, search, setSear
                             <Sidebar setIsOpen={setIsOpen} />
                         </div>
                         <div className="homeContent">
-                            <Questions searchQuery={searchQuery} tags={tags} />
+                            <Questions searchQuery={searchQuery} tags={false} />
                             <div className="pagination">
-                                {(!searchQuery && !tags) &&
+                                {(!searchQuery) &&
                                     (<Pagination page={page} />)}
                             </div>
+                        </div>
+                    </div>
+                </Route>
+                <Route exact path="/questions/tags/:tag">
+                    <div class="HomeSearchBar input-group mb-3">
+                        <span class="searchIcon input-group-text" id="basic-addon1"><AiOutlineSearch /></span>
+                        <input type="text" onKeyDown={handleKeyPress} value={search} onChange={(e) => setSearch(e.target.value)} class="searchBar form-control" placeholder="Search..." aria-label="Search" aria-describedby="basic-addon1" />
+                    </div>
+                    <div className="AppContainer">
+                        <div className="sidebar">
+                            <Sidebar setIsOpen={setIsOpen} />
+                        </div>
+                        <div className="homeContent">
+                            <Questions searchQuery={searchQuery} tags={true} />
                         </div>
                     </div>
                 </Route>

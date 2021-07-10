@@ -37,6 +37,18 @@ export const getQuestionsBySearch = (searchQuery) => async (dispatch) => {
     }
 }
 
+export const getQuestionsByTag = (tag) => async (dispatch) => {
+    try {
+        dispatch({ type: START_LOADING });
+        const { data } = await api.fetchQuestionsByTag(tag);
+        const action = { type: FETCH_BY_SEARCH, payload: data };
+        dispatch(action);
+        dispatch({ type: END_LOADING });
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const getQuestion = (id) => async (dispatch) => {
     try {
         dispatch({ type: START_LOADING });

@@ -31,6 +31,29 @@ No, Wants to create a Question, then got to Ask a Question.
 <br/>
 <br/>
 ## You can post Answer under any question. and you will get number of votes to your answer by upvoting and downvoting to your answer 
-![Screenshot (170)_LI](https://user-images.githubusercontent.com/84262266/125185341-f9679980-e241-11eb-81e3-d554491bcf8d.jpg)
+![Screenshot (191)](https://user-images.githubusercontent.com/84262266/125185766-477d9c80-e244-11eb-8272-71beca51bd22.png)
 <br/>
 <br/>
+## You can search across all the previous questions based on keywords
+![Screenshot (179)](https://user-images.githubusercontent.com/84262266/125185774-52383180-e244-11eb-8245-1d34442ff0fb.png)
+## List of Tags where on clicking the particular tag you will get a little info about it and number of questions available on that tag
+![Screenshot (185)](https://user-images.githubusercontent.com/84262266/125185777-582e1280-e244-11eb-8131-909ac2225c89.png)
+<br/>
+<br/>
+## You can filter the tags by the keywords and aslo you can sort them by their popularity,newest and name
+![Screenshot (184)](https://user-images.githubusercontent.com/84262266/125185786-64b26b00-e244-11eb-8052-2afd1da26a10.png)
+<br/>
+<br/>
+## On clicking the tag you will redirect to the questions page that are related to that particular tag 
+![Screenshot (182)](https://user-images.githubusercontent.com/84262266/125185794-68de8880-e244-11eb-8209-ccae8190d9e8.png)
+<br/>
+<br/>
+## Finally, This is an admin page where admins can control everything.
+![Screenshot (178)](https://user-images.githubusercontent.com/84262266/125185802-7562e100-e244-11eb-8fbe-388a71d9e168.png)
+<br/>
+<br/>
+<br/>
+<br/>
+## Visit our Website Now
+
+

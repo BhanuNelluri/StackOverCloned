@@ -7,6 +7,7 @@ export const askQuestion = (questionData) => async (dispatch) => {
     try {
         const { data } = await api.askQuestion(questionData);
         dispatch({ type: CREATE, payload: data });
+        dispatch(success("Question Created Successfully"))
     } catch (error) {
         dispatch(alerterror("Please Login to post a question"));
         console.log(error);

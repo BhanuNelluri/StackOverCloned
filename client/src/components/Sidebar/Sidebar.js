@@ -16,9 +16,9 @@ export default function Sidebar({ isOpen, setIsOpen }) {
                 <div className="SidebarItem">
                     <NavLink exact="true" activeClassName='active' onClick={() => setIsOpen(false)} className="SidebarLinks" to='/tags'>Tags</NavLink>
                 </div>
-                {user && (user.result.email = "bhanunelluri0829@gmail.com" && <div className="SidebarItem">
-                    <a exact="true" activeClassName='active' onClick={() => setIsOpen(false)} className="SidebarLinks" href='https://stack-over-cloned.herokuapp.com/'>Admin</a>
-                </div>)}
+                {(user && user?.result.email === "bhanunelluri0829@gmail.com") && <div className="SidebarItem">
+                    <a exact="true" activeClassName='active' onClick={() => setIsOpen(false)} className="SidebarLinks" href='https://stack-over-cloned.herokuapp.com/admin'>Admin</a>
+                </div>}
 
                 {/* <div className="SidebarItem">
                     <NavLink exact="true" activeClassName='active' onClick={() => setIsOpen(false)} className="SidebarLinks" to='/users'>Users</NavLink>

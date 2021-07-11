@@ -11,11 +11,11 @@ export default function Questions({ searchQuery, tags }) {
     const { questions, isLoading } = useSelector((state) => state.questions);
     const { total } = useSelector((state) => state.questions);
     const dispatch = useDispatch();
-    const tag = useSelector((state) => state.tags.tag);
+    const tag1 = useSelector((state) => state.tags.tag);
     const [sortType, setSortType] = useState('Newest');
     const { tag: skill } = useParams();
 
-    console.log(tag);
+    // console.log(tag);
 
     useEffect(() => {
         if (tags) {
@@ -41,7 +41,7 @@ export default function Questions({ searchQuery, tags }) {
                     <a className="btn btn-success" href="/newQuestion">Ask Question</a>
                 </div>
             </div>
-            {tags && <div className="tagContent">{tag && tag[0].body}</div>}
+            {tags && <div className="tagContent">{(tag1) && tag1.body}</div>}
             <div className="QuestionBar">
 
                 <div className="totalQuestions">{(tags || searchQuery) ? (questions && questions.length) : total} questions</div>

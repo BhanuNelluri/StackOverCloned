@@ -1,6 +1,6 @@
 # IITG Stack Overflow
 People can post general,tech related or any sort of queries on the home feed provided with a search bar to search across all the previous questions based on keywords and other users will be able to answer those queries
-## Link Example
+## Link
 [IITGStackOverCloned](https://stack-over-cloned.netlify.app/)
 <br/>
 <br/>
@@ -30,7 +30,7 @@ No, Wants to create a Question, then got to Ask a Question.
 ![Screenshot (183)](https://user-images.githubusercontent.com/84262266/125185306-cf15dc00-e241-11eb-833a-5f8b06cd648a.png)
 <br/>
 <br/>
-## You can post Answer under any question. and you will get number of votes to your answer by upvoting and downvoting to your answer 
+## You can post Answer under any question and you will get number of votes to your answer by upvoting and downvoting to your answer 
 ![Screenshot (191)](https://user-images.githubusercontent.com/84262266/125185766-477d9c80-e244-11eb-8272-71beca51bd22.png)
 <br/>
 <br/>

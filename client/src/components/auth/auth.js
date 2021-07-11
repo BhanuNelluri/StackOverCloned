@@ -94,10 +94,10 @@ const Auth = ({ isSignup, setIsSignup }) => {
             </div>
             {
                 isSignup ?
-                    <div className="info">Dont' have an account? <span onClick={() => {
+                    <div className="info">Dont' have an account? <span className="span" onClick={() => {
                         setShowPassword(false);
                         setIsSignup(false);
-                    }}>SignUp</span></div> : <div className="info">Already have an account? <span onClick={() => {
+                    }}>SignUp</span></div> : <div className="info">Already have an account? <span className="span" onClick={() => {
                         setShowPassword(false);
                         setIsSignup(true);
                     }}>SignIn</span></div>

@@ -7,6 +7,7 @@ import userRoutes from './routes/users.js';
 import commentRoutes from './routes/comments.js';
 import answerRoutes from './routes/answers.js'
 import tagRoutes from './routes/tags.js'
+import adminRoutes from './routes/admin.js'
 // import * as path from 'path';
 // import { fileURLToPath } from 'url';
 // const __filename = fileURLToPath(import.meta.url);
@@ -42,6 +43,8 @@ app.get('/', (req, res) => {
     res.send("Welcome to memories app!")
 })
 
+// app.use(checkAdmin);
+app.use('/admin', adminRoutes);
 app.use('/question', questionRoutes);
 app.use('/users', userRoutes);
 app.use('/question/:id/comment', commentRoutes);

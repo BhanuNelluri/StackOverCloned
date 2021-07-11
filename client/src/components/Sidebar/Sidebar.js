@@ -3,11 +3,11 @@ import './Sidebar.css';
 import { NavLink } from 'react-router-dom';
 
 export default function Sidebar({ isOpen, setIsOpen }) {
-
+    const user = JSON.parse(localStorage.getItem('profile'))
 
 
     return (
-        <div className="Sidebar" style={{ width: `${isOpen ? "30%" : "15%"}` }} >
+        <div className="Sidebar" style={{ width: `${isOpen ? "40%" : "15%"}` }} >
 
             <div className="SidebarMenu">
                 <div className="SidebarItem">
@@ -16,6 +16,10 @@ export default function Sidebar({ isOpen, setIsOpen }) {
                 <div className="SidebarItem">
                     <NavLink exact="true" activeClassName='active' onClick={() => setIsOpen(false)} className="SidebarLinks" to='/tags'>Tags</NavLink>
                 </div>
+                {user && (user.result.email = "bhanunelluri0829@gmail.com" && <div className="SidebarItem">
+                    <a exact="true" activeClassName='active' onClick={() => setIsOpen(false)} className="SidebarLinks" href='https://stack-over-cloned.herokuapp.com/'>Admin</a>
+                </div>)}
+
                 {/* <div className="SidebarItem">
                     <NavLink exact="true" activeClassName='active' onClick={() => setIsOpen(false)} className="SidebarLinks" to='/users'>Users</NavLink>
                 </div>

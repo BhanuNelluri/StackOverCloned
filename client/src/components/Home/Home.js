@@ -102,9 +102,9 @@ export default function Home({ isSignup, setIsSignup, setIsOpen, search, setSear
                         </div>
                     </div>
                 </Route>
-                <Route exact path="/newtag">
+                {/* <Route exact path="/newtag">
                     <TagsForm />
-                </Route>
+                </Route> */}
                 <Route exact path="/tags">
                     <div className="AppContainer">
                         <div className="sidebar">

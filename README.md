@@ -6,8 +6,8 @@ People can post general,tech related or any sort of queries on the home feed pro
 <br/>
 ## Home Page
 ![Screenshot (190)](https://user-images.githubusercontent.com/84262266/125185174-c7096c80-e240-11eb-9e82-80ed7b01e06b.png)
-Wants to Answer a Question then choose the Question you like.<br/>
-No, Wants to create a Question, then got to Ask a Question.
+Wants to Answer a Question, then choose the Question you like.<br/>
+No, Wants to create a Question, then click on the button "Ask Question".
 <br/>
 <br/>
 ## But wait! Have you logged in first!

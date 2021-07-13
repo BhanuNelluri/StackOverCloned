@@ -15,7 +15,6 @@ AdminBro.registerAdapter(AdminBroMongoose)
 
 const options = {
     resources: [User, Tag, Answer, Comment, Question],
-    rootPath: '/admin',
 };
 
 const adminBro = new AdminBro(options)

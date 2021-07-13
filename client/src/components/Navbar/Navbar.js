@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Navbar.css';
 import { Link as LinkR, useHistory, useLocation } from 'react-router-dom';
 import { TimelineLite, Power3 } from 'gsap';
+import { gsap } from 'gsap/gsap-core';
 import { useDispatch } from 'react-redux';
 import { LOGOUT } from '../../constants/ActionTypse';
 import decode from 'jwt-decode';
@@ -15,6 +16,7 @@ export default function Navbar({ isOpen, setIsOpen, isSignup, setIsSignup, searc
     let Line2 = useRef(null);
     let Line3 = useRef(null);
 
+    gsap.registerPlugin(TimelineLite);
     var t1 = new TimelineLite();
     const toggle = () => {
         setIsOpen(!isOpen);

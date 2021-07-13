@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Navbar.css';
 import { Link as LinkR, useHistory, useLocation } from 'react-router-dom';
 import { TimelineLite, Power3 } from 'gsap';
-import { gsap } from 'gsap/gsap-core';
+// import { gsap } from 'gsap/gsap-core';
 import { useDispatch } from 'react-redux';
 import { LOGOUT } from '../../constants/ActionTypse';
 import decode from 'jwt-decode';
@@ -16,7 +16,7 @@ export default function Navbar({ isOpen, setIsOpen, isSignup, setIsSignup, searc
     let Line2 = useRef(null);
     let Line3 = useRef(null);
 
-    gsap.registerPlugin(TimelineLite);
+    // gsap.registerPlugin(TimelineLite);
     var t1 = new TimelineLite();
     const toggle = () => {
         setIsOpen(!isOpen);
@@ -24,13 +24,13 @@ export default function Navbar({ isOpen, setIsOpen, isSignup, setIsSignup, searc
 
     useEffect(() => {
         if (isOpen) {
-            t1.to(Line1, 0.2, { rotateZ: "-45deg", translateY: "8px", ease: Power3.easeOut })
+            t1.to(Line1, 0.2, { rotation: "-=45deg", y: "8px", ease: Power3.easeOut })
                 .to(Line2, 0, { opacity: "0", ease: Power3.easeOut })
-                .to(Line3, 0.2, { rotateZ: "45deg", translateY: "-8px", ease: Power3.easeOut })
+                .to(Line3, 0.2, { rotation: "+=45deg", y: "-8px", ease: Power3.easeOut })
         } else {
-            t1.to(Line1, 0.1, { rotateZ: "0deg", translateY: "0px", ease: Power3.easeOut })
+            t1.to(Line1, 0.1, { rotation: "0deg", y: "0px", ease: Power3.easeOut })
                 .to(Line2, 0.1, { opacity: "1", ease: Power3.easeOut })
-                .to(Line3, 0.1, { rotateZ: "-0deg", translateY: "0px", ease: Power3.easeOut })
+                .to(Line3, 0.1, { rotation: "0deg", y: "0px", ease: Power3.easeOut })
         }
     }, [isOpen]);
 
